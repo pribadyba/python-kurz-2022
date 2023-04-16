@@ -16,16 +16,16 @@ sklad = {
 
 #Pokud zadaná součástka na skladě je a je jí dostatek, vypiš informaci, že poptávku lze uspokojit v plné výši, a sniž počet součástek na skladě o množství požadované zákazníkem.
 
-Kod = input("Zadej kod soucastky: ")
-if Kod in sklad:
-    Mnozstvi = int(input("Zadej mnozstvi: "))
-    if Mnozstvi > sklad[Kod]:
-        print(f"Lze prodat pouze {sklad[Kod]} kusu")
-        sklad.pop("KC147")
+kod = input("Zadej kod soucastky: ")
+if kod in sklad:
+    mnozstvi = int(input("Zadej mnozstvi: "))
+    if mnozstvi >= sklad[kod]:
+        print(f"Lze prodat pouze {sklad[kod]} kusu")
+        sklad.pop(kod)
         print(sklad)
     else:
-        print(f"Soucastka {Kod} je na skladě ve vybranem mnozstvi {Mnozstvi} ks.")
-        sklad[Kod]-=Mnozstvi
+        print(f"Soucastka {kod} je na skladě ve vybranem mnozstvi {mnozstvi} ks.")
+        sklad[kod]-=mnozstvi
         print(sklad)
 else:
-    print(f" Soucastka {Kod} bohuzel neni na skladě")
+    print(f" Soucastka {kod} bohuzel neni na skladě")
