@@ -6,11 +6,13 @@ import json
 with open('body.json', encoding='utf-8') as file:
     hodnoceni=json.load(file)
 
-    for key_jmeno, value_znamka in hodnoceni.items():
-        if value_znamka >= 60:
-            print(key_jmeno, "Pass")
-        else: print(key_jmeno, "Fail")
+znamky = {}
 
-import json
-with open ('prospech.json', mode="w", encoding='utf-8') as file_2:
-    json.dump(hodnoceni,file_2,ensure_ascii=False)
+for key_jmeno, value_znamka in hodnoceni.items():
+    if value_znamka >= 60:
+        znamky[key_jmeno]="Pass"
+    else: 
+        znamky[key_jmeno]="Fail"
+
+with open ('prospech.json', mode="w", encoding='utf-8') as file:
+    json.dump(znamky,file,ensure_ascii=False)
